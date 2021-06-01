@@ -1,0 +1,18 @@
+use in app.py file:
+
+app.run(host="0.0.0.0")
+
+
+then to build:
+
+docker build -t hrf_predict .
+
+
+to run:
+
+docker run -it -p5000:5000 hrf_predict
+
+
+site is at:
+
+http://192.168.99.100:5000/

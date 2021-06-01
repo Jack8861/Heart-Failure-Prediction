@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Search Page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<style>
+    input[type=number], input[type=radio] {
+  border: 2px solid red;
+  border-radius: 4px;
+  margin: 8px 4px;
+  margin-bottom:10px;
+}
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 8px 4px;
+  cursor: pointer;
+}
+body {
+    text-align: center;
+    background-color: white;
+}
+form {
+    display: inline-block;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Predict heart failure</h1>
+
+    <div class="form">
+        <form action="/predict" method="POST">
+            <label for="age">Age</label>
+            <input type="number" name="age" id="age" placeholder="75">
+            <br>
+            <label for="anaemia">anaemia</label>
+            <label for="anaemia">yes</label>
+            <input type="radio" name="anaemia" id="anaemia" placeholder="No" value="1">
+            <label for="anaemia">no</label>
+            <input type="radio" name="anaemia" id="anaemia" placeholder="No" value="0">
+            <br>
+
+            <label for="creatinine_phosphokinase">creatinine_phosphokinase</label>
+            <input type="number" name="creatinine_phosphokinase" id="creatinine_phosphokinase" placeholder="582">
+            <br>
+
+            <label for="diabetes">diabetes</label>
+            <label for="diabetes">Yes</label>
+            <input type="radio" name="diabetes" id="diabetes" value="1">
+            <label for="diabetes">No</label>
+            <input type="radio" name="diabetes" id="diabetes" value="0">
+            <br>
+
+            <label for="ejection_fraction">ejection_fraction</label>
+            <input type="number" name="ejection_fraction" id="ejection_fraction" placeholder="20">
+            <br>
+
+            <label for="high_blood_pressure">high_blood_pressure</label>
+            <label for="high_blood_pressure">Yes</label>
+            <input type="radio" name="high_blood_pressure" id="high_blood_pressure" value="1" >
+            <label for="high_blood_pressure">No</label>
+            <input type="radio" name="high_blood_pressure" id="high_blood_pressure" value="0" >
+            <br>
+
+            <label for="platelets">platelets</label>
+            <input type="number" name="platelets" id="platelets" placeholder="265000.00" step="0.01">
+            <br>
+
+            <label for="serum_creatinine">serum_creatinine</label>
+            <input type="number" name="serum_creatinine" id="serum_creatinine" placeholder="1.9" step="0.1">
+            <br>
+
+            <label for="serum_sodium">serum_sodium</label>
+            <input type="number" name="serum_sodium" id="serum_sodium" placeholder="130">
+            <br>
+
+            <input type="radio" id="male" name="sex" value="1">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="sex" value="0">
+            <label for="female">Female</label>
+            <br>
+
+            <label for="smoking">smoking</label>
+            <label for="smoking">Yes</label>
+            <input type="radio" name="smoking" id="smoking" value="1">
+            <label for="smoking">No</label>
+            <input type="radio" name="smoking" id="smoking" value="0">
+            <br>
+
+            <label for="time">time</label>
+            <input type="number" name="time" id="time" placeholder="4">
+            <br>
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+</div>
+{% endblock %}
